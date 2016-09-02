@@ -43,7 +43,6 @@ RUN apk add --update \
 
     # Cleanup
 
-
     && apk del wget \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/* \
