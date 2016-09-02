@@ -28,6 +28,7 @@ RUN apk add --update \
     php-ctype \
     php-opcache \
     php-curl \
+    openssl-dev \
     bash \
 
     # Install PHP extensions not available via apk
