@@ -1,3 +1,4 @@
 #!/usr/bin/with-contenv sh
+umask 0002
 
-exec php-fpm;
+exec php-fpm --nodaemonize;
