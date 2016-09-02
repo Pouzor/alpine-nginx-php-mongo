@@ -24,5 +24,7 @@ pecl_install ()
 pecl_install extension apcu 4.0.10 --enable-apcu
 pecl_install zend_extension xdebug 2.3.3 --enable-xdebug
 
+pecl_install extension mongodb 1.1.8
+
 # Cleanup
 apk del autoconf php-dev zlib-dev pcre-dev alpine-sdk
