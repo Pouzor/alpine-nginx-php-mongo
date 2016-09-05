@@ -37,7 +37,7 @@ RUN apk add --update \
     # User docker
 
     && adduser -u 1000 -D -s /bin/ash docker \
-    && echo "docker:docker" | chpasswd \
+    && echo "docker:www-data" | chpasswd \
 
     && build-php-extensions \
 
@@ -61,7 +61,7 @@ RUN apk add --update \
     # Fix permissions
 
     #&& rm -r /var/www/localhost \
-    #&& chown -Rf nginx:www-data /var/www/ /.composer \
+    && chown -Rf docker:www-data /var/www/ /.composer \
 
 
     # Cleanup
