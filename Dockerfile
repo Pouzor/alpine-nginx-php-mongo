@@ -33,6 +33,7 @@ RUN apk add --update \
 
     # Install PHP extensions not available via apk
 
+
     # User docker
 
     && adduser -u 1000 -D -s /bin/ash docker \
@@ -59,8 +60,8 @@ RUN apk add --update \
 
     # Fix permissions
 
-    && rm -r /var/www/localhost \
-    && chown -Rf nginx:www-data /var/www/ /.composer \
+    #&& rm -r /var/www/localhost \
+    #&& chown -Rf nginx:www-data /var/www/ /.composer \
 
 
     # Cleanup
