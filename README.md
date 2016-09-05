@@ -1,15 +1,15 @@
-# Symfony 2 PHP-FPM Nginx With MongoDB
+# Symfony 2 PHP-FPM Nginx
 
 Nginx and PHP-FPM running together in a docker container.
 This image is based on `alpine:3.3` with [S6](http://skarnet.org/software/s6/) 
-and optimized for Symfony 2/3.
+and optimized for Symfony 3.
 
 ## Use
 
 ### Mounting your project file for development purpose
 
 To be used in your Symfony 3 folder:  
-`docker run -d --name my-app -p 1337:80 -e SYMFONY_ENV=dev -v $(pwd):/var/www pouzor/alpine-php-nginx-mongo .`
+`docker run -d --name my-app -p 1337:80 -e SYMFONY_ENV=dev -v $(pwd):/var/www gcanal/alpine-php-nginx .`
 
 ### Use bash inside your container
 
@@ -17,7 +17,7 @@ To be used in your Symfony 3 folder:
 
 ## Build your own
 
-`docker build -t username/alpine-php-nginx-mongo .`
+`docker build -t username/alpine-php-nginx .`
 
 ## Tweak
 
