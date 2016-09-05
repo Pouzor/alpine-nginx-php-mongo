@@ -18,7 +18,7 @@ pecl_install ()
   ./configure $CONFIGURE_ARGS
   make
   make install
-  echo "$EXT_TYPE=$NAME.so" >> /etc/php/conf.d/$NAME.ini
+  echo "$EXT_TYPE=$NAME.so" >> /etc/php5/conf.d/$NAME.ini
 }
 
 # Install PHP extensions
