@@ -35,9 +35,9 @@ RUN apk add --update \
 
     # Configure PHP
 
-    && echo "memory_limit=-1" >> /etc/php5/conf.d/docker.ini \
-    && echo "date.timezone=Europe/Paris" >> /etc/php5/conf.d/docker.ini \
-    && echo -e "\n[XDebug]\nxdebug.idekey=\"docker\"\nxdebug.remote_enable=On\nxdebug.remote_connect_back=On\nxdebug.remote_autostart=Off" >> /etc/php5/conf.d/docker.ini \
+  #  && echo "memory_limit=-1" >> /etc/php5/conf.d/docker.ini \
+  #  && echo "date.timezone=Europe/Paris" >> /etc/php5/conf.d/docker.ini \
+  #  && echo -e "\n[XDebug]\nxdebug.idekey=\"docker\"\nxdebug.remote_enable=On\nxdebug.remote_connect_back=On\nxdebug.remote_autostart=Off" >> /etc/php5/conf.d/docker.ini \
 
     # User docker
 
