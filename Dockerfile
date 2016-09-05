@@ -48,8 +48,6 @@ RUN apk add --update \
     && rm -rf /tmp/* \
 
     # Install composer
-
-    && chmod 777 -R /var/www/app/cache
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/sbin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
