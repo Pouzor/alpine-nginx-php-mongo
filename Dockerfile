@@ -33,11 +33,16 @@ RUN apk add --update \
 
     # Install PHP extensions not available via apk
 
+    # Configure PHP
 
-    # User docker
+    && echo "memory_limit=-1" >> /etc/php5/conf.d/docker.ini \
+    && echo "date.timezone=Europe/Paris" >> /etc/php5/conf.d/docker.ini \
+    && echo -e "\n[XDebug]\nxdebug.idekey=\"docker\"\nxdebug.remote_enable=On\nxdebug.remote_connect_back=On\nxdebug.remote_autostart=Off" >> /etc/php5/conf.d/docker.ini \
 
-    && adduser -u 1000 -D -s /bin/ash docker \
-    && echo "docker:docker" | chpasswd \
+    # USer docker
+
+   # && adduser -u 1000 -D -s /bin/ash docker \
+   # && echo "docker:docker" | chpasswd \
 
     && build-php-extensions \
 
@@ -46,6 +51,9 @@ RUN apk add --update \
     && wget https://github.com/just-containers/s6-overlay/releases/download/v${S6VERSION}/s6-overlay-amd64.tar.gz --no-check-certificate -O /tmp/s6-overlay.tar.gz \
     && tar xvfz /tmp/s6-overlay.tar.gz -C / \
     && rm -f /tmp/s6-overlay.tar.gz \
+
+
+
 
 
     # Install composer
@@ -60,8 +68,8 @@ RUN apk add --update \
 
     # Fix permissions
 
-    #&& rm -r /var/www/localhost \
-  #  && chown -Rf docker:www-data /var/www/ /.composer \
+    && rm -r /var/www/localhost \
+    && chown -Rf nginx:www-data /var/www/ /.composer \
 
 
     # Cleanup
