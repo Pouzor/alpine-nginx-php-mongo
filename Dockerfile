@@ -33,12 +33,6 @@ RUN apk add --update \
 
     # Install PHP extensions not available via apk
 
-    # Configure PHP
-
-  #  && echo "memory_limit=-1" >> /etc/php5/conf.d/docker.ini \
-  #  && echo "date.timezone=Europe/Paris" >> /etc/php5/conf.d/docker.ini \
-  #  && echo -e "\n[XDebug]\nxdebug.idekey=\"docker\"\nxdebug.remote_enable=On\nxdebug.remote_connect_back=On\nxdebug.remote_autostart=Off" >> /etc/php5/conf.d/docker.ini \
-
     # User docker
 
     && adduser -u 1000 -D -s /bin/ash docker \
