@@ -36,6 +36,8 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     git \
 
     # Configure PHP
+    && build-php-extensions \
+
 
     && echo "memory_limit=-1" >> /etc/php5/conf.d/docker.ini \
     && echo "date.timezone=Europe/Paris" >> /etc/php5/conf.d/docker.ini \
@@ -65,7 +67,7 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
 
     # Build extensions
 
-    && build-php-extensions \
+
 
     ## Install global PHP utilities
 
