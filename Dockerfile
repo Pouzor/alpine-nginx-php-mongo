@@ -33,6 +33,17 @@ RUN apk add --update \
 
     # Install PHP extensions not available via apk
 
+    # Configure PHP
+
+    && echo "memory_limit=-1" >> /etc/php5/conf.d/docker.ini \
+    && echo "date.timezone=Europe/Paris" >> /etc/php5/conf.d/docker.ini \
+    && echo -e "\n[XDebug]\nxdebug.idekey=\"docker\"\nxdebug.remote_enable=On\nxdebug.remote_connect_back=On\nxdebug.remote_autostart=Off" >> /etc/php5/conf.d/docker.ini \
+
+    # User docker
+
+    && adduser -u 1000 -D -s /bin/ash docker \
+    && echo "docker:docker" | chpasswd \
+
     && build-php-extensions \
 
     # Install S6
@@ -41,11 +52,6 @@ RUN apk add --update \
     && tar xvfz /tmp/s6-overlay.tar.gz -C / \
     && rm -f /tmp/s6-overlay.tar.gz \
 
-    # Cleanup
-
-    && apk del wget \
-    && rm -rf /var/cache/apk/* \
-    && rm -rf /tmp/* \
 
     # Install composer
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -60,12 +66,20 @@ RUN apk add --update \
     # Fix permissions
 
     && rm -r /var/www/localhost \
-    && chown -Rf nginx:www-data /var/www/ /.composer
+    && chown -Rf nginx:www-data /var/www/ /.composer \
+
+
+    # Cleanup
+
+    && apk del wget \
+    && rm -rf /var/cache/apk/* \
+    && rm -rf /tmp/*
+
 
 # Set working directory
 WORKDIR /var/www
 
 # Expose the ports for nginx
-EXPOSE 80 443
+EXPOSE 80 443 22 9000
 
 ENTRYPOINT [ "/init" ]
