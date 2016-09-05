@@ -31,6 +31,7 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     php5-memcache \
     php5-curl \
     su-exec \
+    openssl-dev \
     bash \
     git \
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apk add re2c alpine-sdk php5-dev autoconf imagemagick-dev libtool zlib-dev pcre-dev openssl-dev
+apk add re2c alpine-sdk php5-dev autoconf imagemagick-dev libtool zlib-dev pcre-dev
 
 pecl_install ()
 {
@@ -31,4 +31,4 @@ pecl_install extension mongo 1.6.14
 apk del autoconf php5-dev zlib-dev pcre-dev alpine-sdk
 
 rm -rf /tmp/*
-apk del re2c alpine-sdk php5-dev autoconf imagemagick-dev libtool zlib-dev pcre-dev openssl-dev
+apk del re2c alpine-sdk php5-dev autoconf imagemagick-dev libtool zlib-dev pcre-dev
