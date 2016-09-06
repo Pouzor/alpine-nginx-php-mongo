@@ -26,6 +26,7 @@ RUN echo "@testing http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/
     php5-openssl \
     php5-mcrypt \
     php5-dom \
+    php5-pdo \
     php5-mysql \
     php5-ctype \
     php5-opcache \
