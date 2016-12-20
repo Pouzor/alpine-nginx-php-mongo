@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-MAINTAINER Guillem CANAL <hello@guillem.ninja> 
+MAINTAINER Pouzor <remy.jardinet@gmail.com>
 
 ENV S6VERSION 1.17.2.0
 ENV PATH=/.composer/vendor/bin:$PATH
